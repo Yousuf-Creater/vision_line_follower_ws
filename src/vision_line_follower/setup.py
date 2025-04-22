@@ -10,6 +10,8 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name + '/launch', ['launch/spawn_launch.py']),
+        ('share/' + package_name + '/urdf', ['urdf/my_robot.urdf.xacro']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
