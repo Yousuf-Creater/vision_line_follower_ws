@@ -1,0 +1,229 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="track_world">
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Straight road segments -->
+    <model name="road_segment_1">
+      <static>true</static>
+      <link name="link">
+        <visual name="white_road">
+          <pose>0 0 0.005 0 0 0</pose>
+          <geometry>
+            <box><size>10 2 0.01</size></box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <visual name="black_line">
+          <pose>0 0 0.015 0 0 0</pose>
+          <geometry>
+            <box><size>10 0.1 0.005</size></box>
+          </geometry>
+          <material>
+            <ambient>0 0 0 1</ambient>
+            <diffuse>0 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>0 0 0 0 0 0</pose>
+    </model>
+    
+    <model name="road_segment_2">
+      <static>true</static>
+      <link name="link">
+        <visual name="white_road">
+          <pose>0 0 0.005 0 0 0</pose>
+          <geometry>
+            <box><size>10 2 0.01</size></box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <visual name="black_line">
+          <pose>0 0 0.015 0 0 0</pose>
+          <geometry>
+            <box><size>10 0.1 0.005</size></box>
+          </geometry>
+          <material>
+            <ambient>0 0 0 1</ambient>
+            <diffuse>0 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>10 0 0 0 0 0</pose>
+  </model>
+  <model name="road_segment_3">
+    <static>true</static>
+    <link name="link">
+      <visual name="white_road">
+        <pose>0 0 0.005 0 0 0</pose>
+        <geometry>
+          <box><size>10 2 0.01</size></box>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient>
+          <diffuse>1 1 1 1</diffuse>
+        </material>
+      </visual>
+      <visual name="black_line">
+        <pose>0 0 0.015 0 0 0</pose>
+        <geometry>
+          <box><size>10 0.1 0.005</size></box>
+        </geometry>
+        <material>
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <pose>20 0 0 0 0 0</pose>
+  </model>
+
+    <!-- Turn road segments -->
+    <model name="road_segment_4">
+      <static>true</static>
+      <link name="link">
+        <visual name="white_road">
+          <pose>0 0 0.005 0 0 0</pose>
+          <geometry>
+            <box><size>10 2 0.01</size></box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <visual name="black_line">
+          <pose>0 0 0.015 0 0 0</pose>
+          <geometry>
+            <box><size>10 0.1 0.005</size></box>
+          </geometry>
+          <material>
+            <ambient>0 0 0 1</ambient>
+            <diffuse>0 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>20 5 0 0 0 1.57</pose>
+    </model>
+
+    <!-- Backward road -->
+    <model name="road_segment_5">
+      <static>true</static>
+      <link name="link">
+        <visual name="white_road">
+          <pose>0 0 0.005 0 0 0</pose>
+          <geometry>
+            <box><size>10 2 0.01</size></box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <visual name="black_line">
+          <pose>0 0 0.015 0 0 0</pose>
+          <geometry>
+            <box><size>10 0.1 0.005</size></box>
+          </geometry>
+          <material>
+            <ambient>0 0 0 1</ambient>
+            <diffuse>0 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>10 4 0 0 0 3.14</pose>
+    </model>
+    <model name="road_segment_6">
+      <static>true</static>
+      <link name="link">
+        <visual name="white_road">
+          <pose>0 0 0.005 0 0 0</pose>
+          <geometry>
+            <box><size>10 2 0.01</size></box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <visual name="black_line">
+          <pose>0 0 0.015 0 0 0</pose>
+          <geometry>
+            <box><size>10 0.1 0.005</size></box>
+          </geometry>
+          <material>
+            <ambient>0 0 0 1</ambient>
+            <diffuse>0 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>0 4 0 0 0 3.14</pose>
+    </model>
+
+    <!-- Turn to complete loop -->
+    <model name="road_segment_7">
+      <static>true</static>
+      <link name="link">
+        <visual name="white_road">
+          <pose>0 0 0.005 0 0 0</pose>
+          <geometry>
+            <box><size>10 2 0.01</size></box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <visual name="black_line">
+          <pose>0 0 0.015 0 0 0</pose>
+          <geometry>
+            <box><size>10 0.1 0.005</size></box>
+          </geometry>
+          <material>
+            <ambient>0 0 0 1</ambient>
+            <diffuse>0 0 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>0 2 0 0 0 -1.57</pose>
+    </model>
+
+    <!-- Walls for QR -->
+    <model name="wall1">
+      <static>true</static>
+      <link name="wall_link">
+        <visual name="wall_visual">
+          <geometry><box><size>1 0.2 1</size></box></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.6 0.6 0.6 1</diffuse></material>
+        </visual>
+      </link>
+      <pose>21 0 0.5 0 0 -1.57</pose>
+    </model>
+    <model name="wall2">
+      <static>true</static>
+      <link name="wall_link">
+        <visual name="wall_visual">
+          <geometry><box><size>1 0.2 1</size></box></geometry>
+          <material>
+            <script>
+              <uri>file:///home/yousuf/ros2_Project/src/vision_line_follower/worlds/textures/custom.material</uri>
+              <name>qr1</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+      <pose>15 4 0.5 0 0 -1.57</pose>
+    </model>
+  </world>
+</sdf>

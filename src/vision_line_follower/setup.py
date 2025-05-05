@@ -12,6 +12,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/launch', ['launch/spawn_launch.py']),
         ('share/' + package_name + '/urdf', ['urdf/my_robot.urdf.xacro']),
+        ('share/' + package_name + '/worlds', ['worlds/my_custom_world.world']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -22,6 +23,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'Line_follower = vision_line_follower.Line_follower:main'
         ],
     },
 )

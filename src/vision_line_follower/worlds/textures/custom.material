@@ -1,0 +1,27 @@
+material black_line
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+                texture black_line.png
+            }
+        }
+    }
+}
+
+material qr1
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+                texture qr1.png
+            }
+        }
+    }
+}
