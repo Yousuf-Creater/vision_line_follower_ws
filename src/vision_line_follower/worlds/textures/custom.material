@@ -25,3 +25,31 @@ material qr1
         }
     }
 }
+
+material qr2
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+                texture qr2.png
+            }
+        }
+    }
+}
+
+material qr3
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+                texture qr3.png
+            }
+        }
+    }
+}

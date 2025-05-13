@@ -24,6 +24,15 @@ def generate_launch_description():
             output='screen'
         ),
 
+         # Joint State Publisher
+        Node(
+            package='joint_state_publisher',
+            executable='joint_state_publisher',
+            name='joint_state_publisher',
+            output='screen',
+            parameters=[robot_description]
+        ),
+        
         # Publish robot state
         Node(
             package='robot_state_publisher',
@@ -39,4 +48,12 @@ def generate_launch_description():
             arguments=['-entity', 'my_robot', '-topic', 'robot_description'],
             output='screen'
         ),
+
+        # Launch your line follower node
+        Node(
+            package='vision_line_follower',
+            executable='Line_follower',
+            name='Line_follower',
+            output='screen'
+        )
     ])

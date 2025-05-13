@@ -1,4 +1,6 @@
 from setuptools import find_packages, setup
+import os
+from glob import glob 
 
 package_name = 'vision_line_follower'
 
@@ -10,9 +12,10 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('share/' + package_name + '/launch', ['launch/spawn_launch.py']),
+        ('share/' + package_name + '/launch', ['launch/spawn_launch.py','launch/rviz_launch.py']),
         ('share/' + package_name + '/urdf', ['urdf/my_robot.urdf.xacro']),
         ('share/' + package_name + '/worlds', ['worlds/my_custom_world.world']),
+        (os.path.join('share', package_name, 'rviz'), glob('rviz/*.rviz')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

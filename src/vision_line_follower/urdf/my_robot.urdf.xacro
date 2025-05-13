@@ -11,7 +11,7 @@
   <!-- Base link -->
   <link name="base_link">
     <visual>
-      <origin xyz="0 0 ${body_height / 2}" rpy="0 0 0"/>
+      <origin xyz="0 0 ${wheel_radius + body_height / 2}" rpy="0 0 0"/>
       <geometry>
         <box size="${body_length} ${body_width} ${body_height}"/>
       </geometry>
@@ -95,22 +95,25 @@
     </gazebo>  
 
   <!-- Joints for wheels -->
+  <!-- Left wheel joint -->
   <joint name="left_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="left_wheel"/>
-    <origin xyz="-${body_length/3} ${body_width/2 + wheel_width/2} ${wheel_radius/2}" rpy="0 0 0"/>
+    <origin xyz="0 ${body_width/2 + wheel_width/2} 0.05" rpy="0 0 0"/>  <!-- Changed Z from 0 to 0.05 -->
     <axis xyz="0 1 0"/>
   </joint>
 
+<!-- Right wheel joint -->
   <joint name="right_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="right_wheel"/>
-    <origin xyz="-${body_length/3} -${body_width/2 + wheel_width/2} ${wheel_radius/2}" rpy="0 0 0"/>
+    <origin xyz="0 -${body_width/2 + wheel_width/2} 0.05" rpy="0 0 0"/> <!-- Changed Z from 0 to 0.05 -->
     <axis xyz="0 1 0"/>
   </joint>
 
+
   <!-- Front Caster Wheel -->
-  <link name="caster_wheel">
+  <!-- <link name="caster_wheel">
     <visual>
       <geometry>
         <sphere radius="0.03"/>
@@ -133,13 +136,13 @@
                izz="0.00005"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
     </inertial>
-  </link>
+  </link> -->
 
-  <joint name="caster_joint" type="fixed">
+  <!-- <joint name="caster_joint" type="fixed">
     <parent link="base_link"/>
     <child link="caster_wheel"/>
     <origin xyz="0.05 0 0" rpy="0 0 0"/>
-  </joint>
+  </joint> -->
 
   <!-- Camera link -->
   <link name="camera_link">
@@ -157,7 +160,7 @@
   <joint name="camera_joint" type="fixed">
     <parent link="base_link"/>
     <child link="camera_link"/>
-    <origin xyz="0.1 0 ${body_height + 0.025}" rpy="0 0 0"/>
+    <origin xyz="${body_length/2 - 0.025} 0 ${1.75*body_height}" rpy="0 0 0"/>
   </joint>
 
   <!-- Gazebo plugin for camera -->
@@ -188,5 +191,20 @@
       </plugin>
     </sensor>
   </gazebo>
+  <gazebo>
+    <plugin name="diff_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <ros>
+        <remapping>cmd_vel:=/cmd_vel</remapping>
+      </ros>
+      <update_rate>100.0</update_rate>
+      <left_joint>left_wheel_joint</left_joint>
+      <right_joint>right_wheel_joint</right_joint>
+      <wheel_separation>0.2</wheel_separation> <!-- Adjust according to your robot -->
+      <wheel_diameter>0.1</wheel_diameter>
+      <torque>1.0</torque>
+      <command_topic>/cmd_vel</command_topic>
+    </plugin>
+  </gazebo>
+  
 
 </robot>
