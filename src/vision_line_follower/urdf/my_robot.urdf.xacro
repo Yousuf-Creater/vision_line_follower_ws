@@ -16,7 +16,7 @@
         <box size="${body_length} ${body_width} ${body_height}"/>
       </geometry>
       <material name="gray">
-        <color rgba="0.6 0.6 0.6 1.0"/>
+        <color rgba="1.0 0.0 0.0 1.0"/>
       </material>
     </visual>
     <collision>
@@ -33,6 +33,10 @@
                izz="0.001"/>
     </inertial>
   </link>
+
+  <gazebo reference="base_link">
+    <material>Gazebo/Red</material>
+  </gazebo> 
 
     <!-- Left wheel -->
     <link name="left_wheel">
